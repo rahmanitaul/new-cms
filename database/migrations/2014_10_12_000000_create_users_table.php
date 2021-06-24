@@ -3,11 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-<<<<<<< HEAD
-use App\User;
 
-=======
->>>>>>> c2a77aa999cb3655bbfc55932af72511ebe94018
+use App\User;
 
 class CreateUsersTable extends Migration
 {
@@ -20,7 +17,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-<<<<<<< HEAD
             $table->string('username');
             $table->string('email');
             $table->string('password');
@@ -36,15 +32,6 @@ class CreateUsersTable extends Migration
             'password' => $hash,
             'id_role' => '1'
         ]);
-=======
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
->>>>>>> c2a77aa999cb3655bbfc55932af72511ebe94018
     }
 
     /**
