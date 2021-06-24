@@ -1,0 +1,100 @@
+html, body{
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+.login-page, .register-page{
+	background-color: #C2C9EA;
+}
+
+.img{
+	position: relative;
+	display: inline-block;
+	justify-content: flex-start;
+	align-self: left;
+}
+
+.img img{
+	width: 450px;
+	position: relative;
+	right: 30%;
+}
+
+.login-box{
+	position: relative;
+	left: 10%;
+	top: 7%;
+}
+
+.login-box .card{	
+	box-shadow: 0 8px 20px -6px black; 
+}
+
+.login-box .card-header{
+	padding: 20px;
+}
+
+.btn-dark-blue:hover, a.btn-dark-blue:hover, button.btn-dark-blue:hover{
+	color: #fff;
+	background-color: #051EA4;
+}
+
+.btn-dark-blue{
+	background-color: #000A40;
+	color: #fff;
+}
+
+.btn-red{
+	background-color: #C10E05;
+	color: #fff;
+}
+
+.btn-red:hover{
+	background-color: #EF1106;
+	color: #fff;
+}
+
+.outline-dark-blue{
+	border-top: 5px solid #000A40;
+}
+
+aside{
+	background-color: #000A40;
+}
+
+.breadcrumb-item{
+	font-size: 16px;
+}
+.nav .nav-link{
+	color:  #fff;
+}
+
+.nav-pills .nav-link:not(.active):hover {
+    color: #fff;
+    font-weight: bolder;
+    background-color: transparent;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+	background-color: #fff;
+	color: #000A40;
+}
+
+a.action-placement {
+	margin: 0 4px 4px 4px;
+	display: inline-block;
+	/*border-bottom: 1px dotted #428BCA;*/
+	text-decoration: none;
+}
+
+a.action-placement.active {
+	color: #5CB85C;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #000A40;
+    border-color: #000A40;
+}
