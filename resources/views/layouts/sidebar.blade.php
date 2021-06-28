@@ -16,7 +16,7 @@
 
            <li class="nav-item mt-3">
             <a href="{{url('admin/dashboard')}}" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-tachometer-alt mr-3" style="font-size: 1.2em;"></i>
               <p>
                 Dashboard
               </p>
@@ -25,17 +25,17 @@
 
           <li class="nav-item parent-li">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-folder-open"></i>
+              <i class="nav-icon fas fa-folder-open mr-3" style="font-size: 1.2em"></i>
               <p>
                 Branch
-                <i class="right fas fa-angle-left"></i>
+                <i class="right fas fa-angle-left mt-3"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin/sub-branch')}}" class="nav-link">
-                  <i class="far nav-icon"></i>
-                  <p>Sub Branch</p>
+                <a href="{{url('admin/page')}}" class="nav-link">
+                  <i class="far nav-icon mr-3"></i>
+                  <p>Page</p>
                 </a>
               </li>
             </ul>
@@ -45,10 +45,10 @@
             @if($m->dropdown == 'Ya' AND $m->placement == 'Superadmin')
             <li class="nav-item parent-li">
               <a href="#" class="nav-link">
-                <i class="nav-icon {{$m->icon}}"></i>
+                <i class="nav-icon {{$m->icon}} mr-3" style="font-size: 1.2em"></i>
                 <p>
                   {{$m->title}}
-                  <i class="right fas fa-angle-left mt-5"></i>
+                  <i class="right fas fa-angle-left mt-3"></i>
                 </p>
               </a>
                 @foreach($submenu as $sm)
@@ -56,7 +56,7 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="{{url($sm->link)}}" class="nav-link">
-                      <i class="far nav-icon"></i>
+                      <i class="far nav-icon mr-3"></i>
                       <p>{{$sm->title}}</p>
                     </a>
                   </li>
@@ -67,7 +67,7 @@
             @elseif($m->dropdown == 'Tidak' AND $m->placement == 'Superadmin')
             <li class="nav-item parent-li">
               <a href="{{url($m->link)}}" class="nav-link">
-                <i class="nav-icon {{$m->icon}}"></i>
+                <i class="nav-icon {{$m->icon}} mr-3" style="font-size: 1.2em"></i>
                 <p>
                   {{$m->title}}
                 </p>

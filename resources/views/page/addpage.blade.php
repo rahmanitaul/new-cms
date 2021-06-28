@@ -8,6 +8,7 @@
 @section('content_fill')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<div class="container-fluid">
@@ -33,65 +34,61 @@
 					<!-- general form elements -->
 					<div class="card card-secondary">
 						<div class="card-header">
-							<div class="row">	
-								<div class="col-sm-9">
+							<div class="row">
+								<div class="col-sm-11">
 									<h5>Add {{$title}}</h5>
 								</div>
 							</div>
 						</div>
 						<!-- /.card-header -->
 						<!-- form start -->
-						{!! Form::open(['url' => 'admin/insertsubmenu/'.$id_menu->id, 'method' => 'post']) !!}
+						{!! Form::open(['route' => 'admin/insertpage', 'method' => 'post']) !!}
 						@csrf
 
 						<div class="card-body">
 							<div class="form-group">
 								{{Form::label('exampleInputMenu', 'Menu')}}
 
-								{{Form::select('menu_id', $select_menu, $id_menu->id, ['class' => 'form-control', 'placeholder' => 'Choose', 'required' => 'required'])}}
+								{{Form::select('menu_id', $select_menu, null, ['class' => 'form-control', 'placeholder' => 'Choose'])}}
 
 								@error('menu_id')
 								<span class="text-danger" role="alert">{{ $message }}</span>
 								@enderror
 							</div>
-
 							<div class="form-group">
-								{{Form::label('exampleInputSize', 'Title')}}
+								{{Form::label('exampleInputSubMenu', 'Sub Menu')}}
 
-								{{Form::input('text', 'title', null, ['class' => 'form-control', 'required' => 'required'])}}
+								{{Form::select('submenu_id', $select_submenu, null, ['class' => 'form-control', 'placeholder' => 'Choose'])}}
 
-
-								@error('title')
+								@error('submenu_id')
 								<span class="text-danger" role="alert">{{ $message }}</span>
 								@enderror
 							</div>
-
 							<div class="form-group">
-								{{Form::label('exampleInputPlacement', 'Placement')}}
+								{{Form::label('exampleInputPageType', 'Page Type')}}
 
-								{{Form::select('placement', ['Superadmin' => 'Superadmin', 'Admin' => 'Admin'], $id_menu->placement, ['class' => 'form-control', 'placeholder' => 'Choose', 'required' => 'required'])}}
+								{{Form::select('type', ['Report' => 'Report', 'Form' => 'Form'], null, ['class' => 'form-control', 'placeholder' => 'Choose'])}}
 
-								@error('placement')
+								@error('type')
 								<span class="text-danger" role="alert">{{ $message }}</span>
 								@enderror
 							</div>
-
 							<div class="form-group">
-								{{Form::label('exampleInputLink', 'Link')}}
+								{{Form::label('exampleInputMetaFields', 'Meta Fields')}}
 
-								{{Form::input('text', 'link', null, ['class' => 'form-control', 'required' => 'required'])}}
+								{{Form::textarea('meta_fields', null, ['class' => 'form-control', 'rows' => '3'])}}
 
-								@error('link')
+								@error('meta_fields')
 								<span class="text-danger" role="alert">{{ $message }}</span>
 								@enderror
 							</div>
 						</div>
 						<!-- /.card-body -->
 						<div class="card-footer">
-							<a href="{{url('admin/submenu/'.$id_menu->id)}}" class="btn bg-secondary">Back</a>
+							<a href="{{route('admin/page')}}" class="btn bg-secondary">Back</a>
 							<button type="submit" class="btn btn-dark-blue">Save</button>
 						</div>
-					</form>
+					{!! Form::close() !!}
 				</div>
 				<!-- /.card -->
 			</div>

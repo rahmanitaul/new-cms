@@ -11,7 +11,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<div class="container-fluid">
-			<div class="row mb-1">	
+			<div class="row">	
 				<div class="col-sm-6">
 					<h4><b>{{$title}}</b></h4>
 				</div>
@@ -42,8 +42,8 @@
 								<strong><h4>{{$title}} List</h4></strong>
 							</div>
 							<div align="right" class="mt-4">
-								<a href="{{route('admin/addmenu')}}" class="btn btn-dark-blue d-inline p-3 m-0">
-									<i class="fas fa-plus mr-1"></i> Add Menu
+								<a href="{{url('admin/adddetailpage/'.$id)}}" class="btn btn-dark-blue d-inline p-3 m-0">
+									<i class="fas fa-plus mr-1"></i> Add {{$title}}
 								</a>
 							</div>
 						</div>
@@ -53,11 +53,9 @@
 								<thead>
 									<tr>
 										<th>No.</th>
-										<th>Title</th>
-										<th>Icon</th>
-										<th>Link</th>
-										<th>Dropdown</th>
-										<th>Placement</th>
+										<th>Meta</th>
+										<th>Type</th>
+										<th>Method</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -66,22 +64,17 @@
 									<?php 
 
 									$no = 1;
-									foreach ($menu as $m) : ?>
+									foreach ($detailpage as $dp) : ?>
 										<tr>
 											<td>{{ $no++ }}</td>
-											<td>{{ $m->title }}</td>
-											<td>{{ $m->icon }}</td>
-											<td>{{ $m->link }}</td>
-											<td>{{ $m->dropdown }}</td>
-											<td>{{ $m->placement }}</td>
-											<td style="width: 220px;">
-												<a href="{{ url('admin/submenu/'.$m->id) }}" class="btn btn-blue">
-													Submenu
-												</a>
-												<a href="{{ url('admin/editmenu/'.$m->id) }}" class="btn btn-dark-blue">
+											<td>{{ $dp->meta }}</td>
+											<td>{{ $dp->type }}</td>
+											<td>{{ $dp->method }}</td>
+											<td style="width: 200px;">
+												<a href="{{ url('admin/editdetailpage/'.$dp->id) }}" class="btn btn-dark-blue">
 													Edit
 												</a>
-												<form action="{{ url('admin/deletemenu/'.$m->id) }}" method="post" class="d-inline" onsubmit="return confirm('Sure You Want To Delete?');">
+												<form action="{{ url('admin/deletedetailpage/'.$dp->id) }}" method="post" class="d-inline" onsubmit="return confirm('Sure You Want To Delete?');">
 													@method('delete')
 													@csrf
 

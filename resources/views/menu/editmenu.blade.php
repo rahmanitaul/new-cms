@@ -14,7 +14,7 @@
 		<div class="container-fluid">
 			<div class="row">	
 				<div class="col-sm-6">
-					<h5>{{$title}}</h5>
+					<h4><b>{{$title}}</b></h4>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
@@ -64,8 +64,10 @@
 							<div class="form-group">
 								{{Form::label('exampleInputIcon', 'Icon')}}
 
-								{{Form::input('text', 'icon', $m->icon, ['class' => 'form-control'])}}
-
+								<div class="input-group">
+									{{Form::input('text', 'icon', 'fas fa-archive', ['class' => 'form-control icp icp-auto', 'data-placement' => 'bottomRight', 'data-input-search' =>'true'])}}
+									<span class="input-group-addon"></span>
+								</div>
 
 								@error('icon')
 								<span class="text-danger" role="alert">{{ $message }}</span>
@@ -74,7 +76,7 @@
 							<div class="form-group">
 								{{Form::label('exampleInputDropdown', 'Dropdown')}}
 
-								{{Form::select('dropdown', ['Ya' => 'Ya', 'Tidak' => 'Tidak'], $m->dropdown, ['class' => 'form-select', 'placeholder' => 'Choose'])}}
+								{{Form::select('dropdown', ['Ya' => 'Ya', 'Tidak' => 'Tidak'], $m->dropdown, ['class' => 'form-control', 'placeholder' => 'Choose'])}}
 
 								@error('dropdown')
 								<span class="text-danger" role="alert">{{ $message }}</span>
@@ -93,7 +95,7 @@
 							<div class="form-group">
 								{{Form::label('exampleInputPlacement', 'Placement')}}
 
-								{{Form::select('placement', ['Superadmin' => 'Superadmin', 'Admin' => 'Admin'], $m->placement, ['class' => 'form-select', 'placeholder' => 'Choose'])}}
+								{{Form::select('placement', ['Superadmin' => 'Superadmin', 'Admin' => 'Admin'], $m->placement, ['class' => 'form-control', 'placeholder' => 'Choose'])}}
 
 								@error('placement')
 								<span class="text-danger" role="alert">{{ $message }}</span>

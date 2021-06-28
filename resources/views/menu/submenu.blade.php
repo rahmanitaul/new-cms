@@ -31,7 +31,7 @@
 			<div class="row">
 				<div class="col-12">
 						@if (session('message'))
-						<div class="alert alert-success alert-dismissible">
+						<div class="alert alert-success alert-dismissible" role="alert">
 							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 							<strong><i class="icon fas fa-check"></i> {{session('message')}}</strong>
 						</div>
@@ -72,16 +72,16 @@
 											<td>{{ $s->title }}</td>
 											<td>{{ $s->link }}</td>
 											<td>{{ $s->placement }}</td>
-											<td>
-												<a href="{{ url('admin/editsubmenu/'.$s->id) }}" class="btn btn-xs btn-default">
-													<i class="fas fa-edit"></i>
+											<td style="width: 150px;">
+												<a href="{{ url('admin/editsubmenu/'.$s->id) }}" class="btn btn-dark-blue">
+													Edit
 												</a>
 												<form action="{{ url('admin/deletesubmenu/'.$s->id) }}" method="post" class="d-inline" onsubmit="return confirm('Sure You Want To Delete?');">
 													@method('delete')
 													@csrf
 
 													{{Form::input('hidden', 'menu_id', $s->menu_id, ['class' => 'form-control'])}}
-													<button class="btn btn-xs btn-default"><i class="fas fa-trash"></i></button>
+													<button class="btn btn-red">Delete</button>
 												</form>
 											</td>
 										</tr>
