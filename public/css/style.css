@@ -2,6 +2,7 @@ html, body{
 	position: relative;
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
 }
 
 .login-page, .register-page{
@@ -35,52 +36,50 @@ html, body{
 	padding: 20px;
 }
 
-.btn-dark-blue:hover, a.btn-dark-blue:hover, button.btn-dark-blue:hover{
+.btn-blue{
+	background-color: #6C63FF;
 	color: #fff;
-	background-color: #051EA4;
 }
-
+.btn-blue:hover, a.btn-blue:hover, button.btn-blue:hover{
+	background-color: #A8A4F5;
+	color: #fff;
+}
 .btn-dark-blue{
 	background-color: #000A40;
 	color: #fff;
 }
-
+.btn-dark-blue:hover, a.btn-dark-blue:hover, button.btn-dark-blue:hover{
+	color: #fff;
+	background-color:  #051EA4;
+}
 .btn-red{
 	background-color: #C10E05;
 	color: #fff;
 }
-
-.btn-red:hover{
-	background-color: #EF1106;
+.btn-red:hover, a.btn-red:hover, button.btn-red:hover{
 	color: #fff;
+	background-color: #EF1106;
 }
-
 .outline-dark-blue{
 	border-top: 5px solid #000A40;
 }
-
-aside{
-	background-color: #000A40;
-}
-
 .breadcrumb-item{
 	font-size: 16px;
 }
 .nav .nav-link{
-	color:  #fff;
+	color:  #000A40;
+	font-weight: bold;
 }
-
 .nav-pills .nav-link:not(.active):hover {
     color: #fff;
     font-weight: bolder;
-    background-color: transparent;
+    background-color: #000A40;
 }
-
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-	background-color: #fff;
-	color: #000A40;
+.nav-pills .nav-link:is(.active){
+    color: #fff;
+    font-weight: bolder;
+    background-color: #000A40;
 }
-
 a.action-placement {
 	margin: 0 4px 4px 4px;
 	display: inline-block;

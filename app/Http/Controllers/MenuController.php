@@ -128,18 +128,30 @@ class MenuController extends Controller
         return view('menu.addsubmenu', compact('select_menu'), $data);
     }
 
-    public function insertSubmenu(SubmenuValidation $request)
+    public function insertSubmenu($id, SubmenuValidation $request)
     {
-        Submenu::create([
-            'menu_id' => $request->menu_id,
-            'title' => $request->title,
-            'link' => $request->link,
-            'placement' => $request->placement,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
 
+        if ($request->menu_id == $id) {
+
+            Submenu::create([
+                'menu_id' => $request->menu_id,
+                'title' => $request->title,
+                'link' => $request->link,
+                'placement' => $request->placement,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+
+            $menu = Menu::find($id);
+
+            $menu->link = '#';
+            $menu->dropdown = 'Ya';
+            $menu->save();
+
+        }
+        
         return redirect('admin/submenu/'.$request->menu_id)->with('message', 'Insert Success!');
+        
     }
 
     public function editSubmenu($id)

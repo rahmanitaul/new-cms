@@ -14,7 +14,7 @@
 		<div class="container-fluid">
 			<div class="row">	
 				<div class="col-sm-6">
-					<h5>{{$title}}</h5>
+					<h4><b>{{$title}}</b></h4>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">

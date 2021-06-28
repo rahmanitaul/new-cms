@@ -8,6 +8,7 @@
 @section('content_fill')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<div class="container-fluid">
@@ -33,74 +34,78 @@
 					<!-- general form elements -->
 					<div class="card card-secondary">
 						<div class="card-header">
-							<div class="row">	
-								<div class="col-sm-9">
+							<div class="row">
+								<div class="col-sm-11">
 									<h5>Add {{$title}}</h5>
 								</div>
 							</div>
 						</div>
 						<!-- /.card-header -->
 						<!-- form start -->
-						{!! Form::open(['url' => 'admin/insertsubmenu/'.$id_menu->id, 'method' => 'post']) !!}
+						{!! Form::open(['route' => 'admin/insertdetailpage', 'method' => 'post']) !!}
 						@csrf
 
 						<div class="card-body">
+
+							{{Form::input('hidden', 'page_id', $page->id, ['class' => 'form-control'])}}
+
 							<div class="form-group">
-								{{Form::label('exampleInputMenu', 'Menu')}}
+								{{Form::label('exampleInputPageType', 'Page Type')}}
 
-								{{Form::select('menu_id', $select_menu, $id_menu->id, ['class' => 'form-control', 'placeholder' => 'Choose', 'required' => 'required'])}}
+								{{Form::select('type', ['Report' => 'Report', 'Form' => 'Form'], null, ['class' => 'form-control', 'placeholder' => 'Choose'])}}
 
-								@error('menu_id')
+								@error('type')
+								<span class="text-danger" role="alert">{{ $message }}</span>
+								@enderror
+							</div>
+							<div class="form-group">
+								{{Form::label('exampleInputMethod', 'Method')}}
+
+								{{Form::input('text', 'method', null, ['class' => 'form-control'])}}
+
+								@error('method')
 								<span class="text-danger" role="alert">{{ $message }}</span>
 								@enderror
 							</div>
 
 							<div class="form-group">
-								{{Form::label('exampleInputSize', 'Title')}}
 
-								{{Form::input('text', 'title', null, ['class' => 'form-control', 'required' => 'required'])}}
+								<?php 
 
+								if ($page->meta_fields != '[""]'): ?>
 
-								@error('title')
-								<span class="text-danger" role="alert">{{ $message }}</span>
-								@enderror
-							</div>
+									<?php $decode = json_decode($page->meta_fields); ?>
 
-							<div class="form-group">
-								{{Form::label('exampleInputPlacement', 'Placement')}}
+									<?php foreach($decode as $d) : ?>
 
-								{{Form::select('placement', ['Superadmin' => 'Superadmin', 'Admin' => 'Admin'], $id_menu->placement, ['class' => 'form-control', 'placeholder' => 'Choose', 'required' => 'required'])}}
+										{{Form::label('exampleInputMeta', $d, ['class' => 'text-capitalize mt-1'])}}
 
-								@error('placement')
-								<span class="text-danger" role="alert">{{ $message }}</span>
-								@enderror
-							</div>
+										{{Form::select('meta['.$d.']', $select_type_field, null, ['class' => 'form-control mt-1 mb-3', 'placeholder' => 'Choose'])}}
 
-							<div class="form-group">
-								{{Form::label('exampleInputLink', 'Link')}}
+									<?php endforeach ?> 
 
-								{{Form::input('text', 'link', null, ['class' => 'form-control', 'required' => 'required'])}}
+								<?php endif ?>	
 
-								@error('link')
+								@error('meta')
 								<span class="text-danger" role="alert">{{ $message }}</span>
 								@enderror
 							</div>
 						</div>
 						<!-- /.card-body -->
 						<div class="card-footer">
-							<a href="{{url('admin/submenu/'.$id_menu->id)}}" class="btn bg-secondary">Back</a>
+							<a href="{{url('admin/detailpage/'.$page->id)}}" class="btn bg-secondary">Back</a>
 							<button type="submit" class="btn btn-dark-blue">Save</button>
 						</div>
-					</form>
+						{!! Form::close() !!}
+					</div>
+					<!-- /.card -->
 				</div>
 				<!-- /.card -->
 			</div>
-			<!-- /.card -->
+			<!--/.col (right) -->
 		</div>
-		<!--/.col (right) -->
-	</div>
-	<!-- /.row -->
-</section>
-<!-- /.content -->
+		<!-- /.row -->
+	</section>
+	<!-- /.content -->
 </div>
 @endsection

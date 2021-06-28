@@ -13,7 +13,7 @@
 		<div class="container-fluid">
 			<div class="row">	
 				<div class="col-sm-6">
-					<h5>{{$title}}</h5>
+					<h4><b>{{$title}}</b></h4>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
@@ -51,7 +51,7 @@
 							<div class="form-group">
 								{{Form::label('exampleInputMenu', 'Menu')}}
 
-								{{Form::select('menu_id', $select_menu, $s->menu_id, ['class' => 'form-select', 'placeholder' => 'Choose'])}}
+								{{Form::select('menu_id', $select_menu, $s->menu_id, ['class' => 'form-control', 'placeholder' => 'Choose'])}}
 
 								@error('menu_id')
 								<span class="text-danger" role="alert">{{ $message }}</span>
@@ -81,7 +81,7 @@
 							<div class="form-group">
 								{{Form::label('exampleInputPlacement', 'Placement')}}
 
-								{{Form::select('placement', ['Superadmin' => 'Superadmin', 'Admin' => 'Admin'], $s->placement, ['class' => 'form-select', 'placeholder' => 'Choose'])}}
+								{{Form::select('placement', ['Superadmin' => 'Superadmin', 'Admin' => 'Admin'], $s->placement, ['class' => 'form-control', 'placeholder' => 'Choose'])}}
 
 								@error('placement')
 								<span class="text-danger" role="alert">{{ $message }}</span>
@@ -90,7 +90,7 @@
 						</div>
 						<!-- /.card-body -->
 						<div class="card-footer">
-							<a href="{{route('admin/submenu')}}" class="btn bg-secondary">Back</a>
+							<a href="{{url('admin/submenu'.$s->menu_id)}}" class="btn bg-secondary">Back</a>
 							<button type="submit" class="btn btn-dark-blue">Update</button>
 						</div>
 					</form>
